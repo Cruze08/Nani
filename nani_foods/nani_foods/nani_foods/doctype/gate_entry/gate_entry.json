@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "GE-.######",
+ "creation": "2023-01-25 11:00:22.520374",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "gate_entry_type",
+  "date",
+  "time",
+  "entry_type",
+  "vehicle_no",
+  "transporter_name",
+  "lory_reciept_no",
+  "invoice_no",
+  "document_upload",
+  "column_break_7",
+  "invoice_date",
+  "customer_name",
+  "supplier",
+  "invoice_quantity",
+  "eway_bill_no",
+  "weigh_bridge_weight",
+  "data_entered_by",
+  "material_outward_verified_by",
+  "warehouse",
+  "warehouse_contact",
+  "materials_table_section",
+  "material"
+ ],
+ "fields": [
+  {
+   "fieldname": "gate_entry_type",
+   "fieldtype": "Select",
+   "label": "Gate Entry Type",
+   "options": "Inward Entry\nOutward Entry"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Inward Entry\"",
+   "fieldname": "entry_type",
+   "fieldtype": "Select",
+   "label": "Entry Type",
+   "options": "Empty Vehicle\nVehicle with Material"
+  },
+  {
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle No"
+  },
+  {
+   "fieldname": "transporter_name",
+   "fieldtype": "Data",
+   "label": "Transporter Name"
+  },
+  {
+   "fieldname": "lory_reciept_no",
+   "fieldtype": "Data",
+   "label": "Lory Reciept No"
+  },
+  {
+   "fieldname": "invoice_no",
+   "fieldtype": "Data",
+   "label": "Invoice No"
+  },
+  {
+   "default": "0",
+   "fieldname": "invoice_quantity",
+   "fieldtype": "Data",
+   "label": "Invoice Quantity"
+  },
+  {
+   "fieldname": "eway_bill_no",
+   "fieldtype": "Data",
+   "label": "Eway bill no"
+  },
+  {
+   "fieldname": "weigh_bridge_weight",
+   "fieldtype": "Data",
+   "label": "Weigh bridge weight"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Outward Entry\"",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Outward Entry\"",
+   "fieldname": "material_outward_verified_by",
+   "fieldtype": "Data",
+   "label": "Material outward verified by"
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "materials_table_section",
+   "fieldtype": "Section Break",
+   "label": "Materials Table"
+  },
+  {
+   "fieldname": "material",
+   "fieldtype": "Table",
+   "label": "Material",
+   "options": "Materials"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "warehouse_contact",
+   "fieldtype": "Data",
+   "label": "Warehouse Contact"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Inward Entry\"",
+   "fieldname": "data_entered_by",
+   "fieldtype": "Data",
+   "label": "Data Entered By"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Inward Entry\"",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "document_upload",
+   "fieldtype": "Attach",
+   "label": "Document Upload"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "custom": 1,
+   "link_doctype": "Purchase Receipt",
+   "link_fieldname": "Supplier"
+  }
+ ],
+ "modified": "2023-04-21 12:52:28.580526",
+ "modified_by": "Administrator",
+ "module": "Nani Foods",
+ "name": "Gate Entry",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

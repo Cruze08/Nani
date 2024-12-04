@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-02-03 11:26:21.355175",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "purchase_order",
+  "item_code",
+  "item_name",
+  "qty",
+  "received_quantity",
+  "uom",
+  "purchase_order_item_name",
+  "material_type",
+  "item_description",
+  "batch_number",
+  "expiry_date",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name"
+  },
+  {
+   "columns": 1,
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity"
+  },
+  {
+   "columns": 1,
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": " Purchase Order",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "received_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Received Quantity"
+  },
+  {
+   "fieldname": "purchase_order_item_name",
+   "fieldtype": "Data",
+   "label": " Purchase Order Item Name"
+  },
+  {
+   "fieldname": "material_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Material Type",
+   "options": "\nInward\nOutward"
+  },
+  {
+   "fieldname": "item_description",
+   "fieldtype": "Small Text",
+   "label": "Item Description"
+  },
+  {
+   "fieldname": "batch_number",
+   "fieldtype": "Link",
+   "label": "Batch Number",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-29 15:41:38.321955",
+ "modified_by": "Administrator",
+ "module": "Nani Foods",
+ "name": "Materials",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

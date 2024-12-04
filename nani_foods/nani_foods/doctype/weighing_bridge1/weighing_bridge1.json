@@ -1,0 +1,466 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-22 15:19:23.712569",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "gate_entry_section",
+  "gate_entry_type",
+  "date",
+  "entry_type",
+  "lory_reciept_no",
+  "invoice_no",
+  "document_upload",
+  "column_break_7",
+  "invoice_date",
+  "customer_name",
+  "invoice_quantity",
+  "eway_bill_no",
+  "weigh_bridge_weight",
+  "data_entered_by",
+  "material_outward_verified_by",
+  "warehouse",
+  "warehouse_contact",
+  "pre_grn",
+  "vehical_and_material_section",
+  "vehical_and_material_arrival_section_column",
+  "arrival_date_time",
+  "expected_delivery_date",
+  "driver_name",
+  "transporter_name",
+  "vehicle_no",
+  "section_break_jyjp",
+  "supplier_column",
+  "supplier_code",
+  "supplier",
+  "seal_number",
+  "section_break_fxin",
+  "documentation_column",
+  "upload",
+  "packing_slipinvoice_attached",
+  "bill_of_lading_attached",
+  "other_documents",
+  "materials_table_section",
+  "material",
+  "amended_from",
+  "section_break_vmir",
+  "ticket_number",
+  "weigh_material",
+  "vehical_number",
+  "supplier_name",
+  "quantity_received",
+  "uom",
+  "upload_wb_slip",
+  "amend_from",
+  "column_break_wbpe",
+  "load_weight",
+  "actual_weight",
+  "empty_weight",
+  "weight_difference",
+  "invoice_number",
+  "other",
+  "status",
+  "gate_entry_link"
+ ],
+ "fields": [
+  {
+   "fieldname": "gate_entry_section",
+   "fieldtype": "Section Break",
+   "label": "Gate Entry"
+  },
+  {
+   "default": "Outward Entry",
+   "fetch_from": "gate_entry_link.gate_entry_type",
+   "fieldname": "gate_entry_type",
+   "fieldtype": "Select",
+   "label": "Gate Entry Type",
+   "options": "Inward Entry\nOutward Entry"
+  },
+  {
+   "default": "Now",
+   "fetch_from": "gate_entry_link.date",
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date & Time"
+  },
+  {
+   "fetch_from": "gate_entry_link.entry_type",
+   "fieldname": "entry_type",
+   "fieldtype": "Select",
+   "label": "Entry Type",
+   "options": "Empty Vehicle\nVehicle with Material"
+  },
+  {
+   "fetch_from": "gate_entry_link.lory_reciept_no",
+   "fieldname": "lory_reciept_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Lory Reciept No"
+  },
+  {
+   "fetch_from": "gate_entry_link.invoice_no",
+   "fieldname": "invoice_no",
+   "fieldtype": "Data",
+   "label": "Invoice No",
+   "options": "Gate Entry.invoice_no"
+  },
+  {
+   "fetch_from": "gate_entry_link.document_upload",
+   "fieldname": "document_upload",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Document Upload"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "gate_entry_link.invoice_date",
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Invoice Date"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Outward Entry\"",
+   "fetch_from": "gate_entry_link.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "default": "0",
+   "fieldname": "invoice_quantity",
+   "fieldtype": "Data",
+   "label": "Invoice Quantity"
+  },
+  {
+   "fetch_from": "gate_entry_link.eway_bill_no",
+   "fieldname": "eway_bill_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Eway bill no"
+  },
+  {
+   "fetch_from": "gate_entry_link.weigh_bridge_weight",
+   "fieldname": "weigh_bridge_weight",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Weigh bridge weight"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Inward Entry\"",
+   "fetch_from": "gate_entry_link.data_entered_by",
+   "fieldname": "data_entered_by",
+   "fieldtype": "Data",
+   "label": "Data Entered By"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Outward Entry\"",
+   "fetch_from": "gate_entry_link.material_outward_verified_by",
+   "fieldname": "material_outward_verified_by",
+   "fieldtype": "Data",
+   "label": "Material outward verified by"
+  },
+  {
+   "fetch_from": "gate_entry_link.warehouse",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fetch_from": "gate_entry_link.warehouse_contact",
+   "fieldname": "warehouse_contact",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Warehouse Contact"
+  },
+  {
+   "default": "PGRN-.YY.MM.-",
+   "depends_on": "eval:doc.entry_type == 'Vehicle with Material'\n",
+   "fetch_from": "gate_entry_link.pre_grn",
+   "fieldname": "pre_grn",
+   "fieldtype": "Data",
+   "label": "Pre GRN"
+  },
+  {
+   "fieldname": "vehical_and_material_section",
+   "fieldtype": "Section Break",
+   "label": "Vehical and Material"
+  },
+  {
+   "fieldname": "vehical_and_material_arrival_section_column",
+   "fieldtype": "Column Break",
+   "label": "Vehical and Material Arrival Section"
+  },
+  {
+   "fetch_from": "gate_entry_link.arrival_date_time",
+   "fieldname": "arrival_date_time",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Arrival Date Time"
+  },
+  {
+   "fetch_from": "gate_entry_link.expected_delivery_date",
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected Delivery Date"
+  },
+  {
+   "fetch_from": "gate_entry_link.driver_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name"
+  },
+  {
+   "fetch_from": "gate_entry_link.transporter_name",
+   "fieldname": "transporter_name",
+   "fieldtype": "Data",
+   "label": "Transporter Name"
+  },
+  {
+   "fetch_from": "gate_entry_link.vehicle_no",
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle No"
+  },
+  {
+   "fieldname": "section_break_jyjp",
+   "fieldtype": "Section Break",
+   "label": "Supplier"
+  },
+  {
+   "fieldname": "supplier_column",
+   "fieldtype": "Column Break",
+   "label": "Supplier"
+  },
+  {
+   "fetch_from": "gate_entry_link.supplier_code",
+   "fieldname": "supplier_code",
+   "fieldtype": "Data",
+   "label": "Supplier Code",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gate_entry_link.supplier",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gate_entry_link.seal_number",
+   "fieldname": "seal_number",
+   "fieldtype": "Data",
+   "label": "Seal Number"
+  },
+  {
+   "fieldname": "section_break_fxin",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Documentation"
+  },
+  {
+   "fieldname": "documentation_column",
+   "fieldtype": "Column Break",
+   "label": "Documentation"
+  },
+  {
+   "fetch_from": "gate_entry_link.upload",
+   "fieldname": "upload",
+   "fieldtype": "Attach",
+   "label": "Upload"
+  },
+  {
+   "default": "0",
+   "fetch_from": "gate_entry_link.packing_slipinvoice_attached",
+   "fieldname": "packing_slipinvoice_attached",
+   "fieldtype": "Check",
+   "label": "Packing Slip/Invoice Attached"
+  },
+  {
+   "default": "0",
+   "fetch_from": "gate_entry_link.bill_of_lading_attached",
+   "fieldname": "bill_of_lading_attached",
+   "fieldtype": "Check",
+   "label": "Bill of Lading Attached"
+  },
+  {
+   "default": "0",
+   "fetch_from": "gate_entry_link.other_documents",
+   "fieldname": "other_documents",
+   "fieldtype": "Check",
+   "label": "Other Documents"
+  },
+  {
+   "fieldname": "materials_table_section",
+   "fieldtype": "Section Break",
+   "label": "Materials Table"
+  },
+  {
+   "fieldname": "material",
+   "fieldtype": "Table",
+   "label": "Material",
+   "options": "Materials"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Weighing Bridge1",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "ticket_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Ticket Number"
+  },
+  {
+   "default": "Inward Materials",
+   "fieldname": "weigh_material",
+   "fieldtype": "Select",
+   "label": "Purpose",
+   "options": "Inward Materials\nOutward Materials\nReturn to Vendor\nMaterial Issue to Production\nOthers",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "gate_entry_link.vehicle_no",
+   "fieldname": "vehical_number",
+   "fieldtype": "Data",
+   "label": "Vehical Number"
+  },
+  {
+   "fieldname": "load_weight",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Load Status",
+   "options": "Loaded\nEmpty",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name"
+  },
+  {
+   "fieldname": "actual_weight",
+   "fieldtype": "Data",
+   "label": "Loaded Weight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Select",
+   "label": "UOM",
+   "options": "Kg\nlbs\ntons\netc"
+  },
+  {
+   "fieldname": "quantity_received",
+   "fieldtype": "Data",
+   "label": "Quantity Received"
+  },
+  {
+   "fieldname": "empty_weight",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Empty Weight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weight_difference",
+   "fieldtype": "Data",
+   "label": "Net Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "upload_wb_slip",
+   "fieldtype": "Attach",
+   "label": "Upload WB Slip",
+   "reqd": 1
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice Number",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  },
+  {
+   "fieldname": "other",
+   "fieldtype": "Data",
+   "label": "Other"
+  },
+  {
+   "fieldname": "amend_from",
+   "fieldtype": "Link",
+   "label": "Amend From",
+   "no_copy": 1,
+   "options": "Weighing Bridge1",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "gate_entry_link",
+   "fieldtype": "Link",
+   "label": "Gate Entry",
+   "options": "Gate Entry"
+  },
+  {
+   "fieldname": "section_break_vmir",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wbpe",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "custom": 1,
+   "link_doctype": "Purchase Receipt",
+   "link_fieldname": "Supplier"
+  }
+ ],
+ "modified": "2024-11-26 12:44:29.520484",
+ "modified_by": "Administrator",
+ "module": "Nani Foods",
+ "name": "Weighing Bridge1",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

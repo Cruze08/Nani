@@ -1,0 +1,568 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-25 17:22:01.037375",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "gate_entry_tab",
+  "gate_entry_section",
+  "gate_entry_type",
+  "date",
+  "entry_type",
+  "invoice_no",
+  "document_upload",
+  "lory_reciept_no",
+  "column_break_wrbe",
+  "invoice_date",
+  "customer_name",
+  "invoice_quantity",
+  "eway_bill_no",
+  "weigh_bridge_weight",
+  "data_entered_by",
+  "material_outward_verified_by",
+  "warehouse",
+  "warehouse_contact",
+  "pre_grn",
+  "vehical_and_material_section",
+  "arrival_date_time",
+  "expected_delivery_date",
+  "driver_name",
+  "new_transporter_name",
+  "vehicle_no",
+  "section_break_jyjp",
+  "supplier_code",
+  "supplier",
+  "seal_number",
+  "section_break_fxin",
+  "upload",
+  "packing_slipinvoice_attached",
+  "bill_of_lading_attached",
+  "other_documents",
+  "materials_table_section",
+  "material",
+  "new_amended_from",
+  "gate_entry_link_section",
+  "weighing_bridge_link",
+  "preliminary_qc_checking_section",
+  "preliminary_qc_check",
+  "storage",
+  "upload_new",
+  "im_inspection_report_tab",
+  "incoming_material",
+  "received_from",
+  "vehicle_detailsarrival_details",
+  "invoice_details",
+  "column_break_jhqn",
+  "date_of_receipt",
+  "name_of_qc",
+  "arrival_time",
+  "invoice_date1",
+  "section_break_huzr",
+  "coa_available",
+  "the_outside_of_the_vehicle_is",
+  "material_is_secured_properly",
+  "during_unloading_vehicle_smells",
+  "the_inside_of_the_carrier_is",
+  "sacks_bags_cartons_are",
+  "sacks_bags_cartons_condition",
+  "column_break_mkqk",
+  "no_of_wet_bags_sacks_cartons",
+  "evidence_of_pest_activity",
+  "received_total_no_of_bags",
+  "total_net_weight",
+  "no_of_bags_weighed_randomly",
+  "weight_difference",
+  "no_of_bags_sampels_collected",
+  "no_of_bags_inspected_visually",
+  "section_break_twwy",
+  "tamper_proof_seal_no",
+  "unloading_time",
+  "ok_to_be_stored_in_our_ware_house",
+  "action_taken",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "I M Inspection Report1",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "gate_entry_section",
+   "fieldtype": "Section Break",
+   "label": "Gate Entry"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.gate_entry_type",
+   "fieldname": "gate_entry_type",
+   "fieldtype": "Select",
+   "label": "Gate Entry Type",
+   "options": "Inward Entry\nOutward Entry"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.date",
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "label": "Date & Time"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.entry_type",
+   "fieldname": "entry_type",
+   "fieldtype": "Select",
+   "label": "Entry Type",
+   "options": "Empty Vehicle\nVehicle with Material"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.invoice_no",
+   "fieldname": "invoice_no",
+   "fieldtype": "Data",
+   "label": "Invoice No"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.document_upload",
+   "fieldname": "document_upload",
+   "fieldtype": "Attach",
+   "hidden": 1,
+   "label": "Document Upload"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.lory_reciept_no",
+   "fieldname": "lory_reciept_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Lory Reciept No"
+  },
+  {
+   "fieldname": "column_break_wrbe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.invoice_date",
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Invoice Date"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Outward Entry\"",
+   "fetch_from": "weighing_bridge_link.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.invoice_quantity",
+   "fieldname": "invoice_quantity",
+   "fieldtype": "Data",
+   "label": "Invoice Quantity"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.eway_bill_no",
+   "fieldname": "eway_bill_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Eway bill no"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.weigh_bridge_weight",
+   "fieldname": "weigh_bridge_weight",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Weigh bridge weight"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Inward Entry\"",
+   "fetch_from": "weighing_bridge_link.data_entered_by",
+   "fieldname": "data_entered_by",
+   "fieldtype": "Data",
+   "label": "Data Entered By"
+  },
+  {
+   "depends_on": "eval: doc.gate_entry_type == \"Outward Entry\"",
+   "fetch_from": "weighing_bridge_link.material_outward_verified_by",
+   "fieldname": "material_outward_verified_by",
+   "fieldtype": "Data",
+   "label": "Material outward verified by"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.warehouse",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.warehouse_contact",
+   "fieldname": "warehouse_contact",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Warehouse Contact"
+  },
+  {
+   "depends_on": "eval:doc.entry_type == 'Vehicle with Material'\n",
+   "fetch_from": "weighing_bridge_link.pre_grn",
+   "fieldname": "pre_grn",
+   "fieldtype": "Data",
+   "label": "Pre GRN"
+  },
+  {
+   "fieldname": "vehical_and_material_section",
+   "fieldtype": "Section Break",
+   "label": "Vehical and Material"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.arrival_date_time",
+   "fieldname": "arrival_date_time",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Arrival Date Time"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.expected_delivery_date",
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected Delivery Date"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.driver_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.transporter_name",
+   "fieldname": "new_transporter_name",
+   "fieldtype": "Data",
+   "label": "Transporter Name"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.vehicle_no",
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle No"
+  },
+  {
+   "fieldname": "section_break_jyjp",
+   "fieldtype": "Section Break",
+   "label": "Supplier"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.supplier_code",
+   "fieldname": "supplier_code",
+   "fieldtype": "Data",
+   "label": "Supplier Code",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "weighing_bridge_link.seal_number",
+   "fieldname": "seal_number",
+   "fieldtype": "Data",
+   "label": "Seal Number"
+  },
+  {
+   "fieldname": "section_break_fxin",
+   "fieldtype": "Section Break",
+   "label": "Documentation"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.upload",
+   "fieldname": "upload",
+   "fieldtype": "Data",
+   "label": "Upload"
+  },
+  {
+   "default": "0",
+   "fetch_from": "weighing_bridge_link.packing_slipinvoice_attached",
+   "fieldname": "packing_slipinvoice_attached",
+   "fieldtype": "Check",
+   "label": "Packing Slip/Invoice Attached"
+  },
+  {
+   "default": "0",
+   "fetch_from": "weighing_bridge_link.bill_of_lading_attached",
+   "fieldname": "bill_of_lading_attached",
+   "fieldtype": "Check",
+   "label": "Bill of Lading Attached"
+  },
+  {
+   "default": "0",
+   "fetch_from": "weighing_bridge_link.other_documents",
+   "fieldname": "other_documents",
+   "fieldtype": "Check",
+   "label": "Other Documents"
+  },
+  {
+   "fieldname": "materials_table_section",
+   "fieldtype": "Section Break",
+   "label": "Materials Table"
+  },
+  {
+   "fieldname": "material",
+   "fieldtype": "Table",
+   "label": "Material",
+   "options": "Materials"
+  },
+  {
+   "fieldname": "new_amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gate Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "gate_entry_link_section",
+   "fieldtype": "Section Break",
+   "label": "Gate Entry Link"
+  },
+  {
+   "fieldname": "preliminary_qc_checking_section",
+   "fieldtype": "Section Break",
+   "label": "Preliminary QC Checking"
+  },
+  {
+   "fieldname": "preliminary_qc_check",
+   "fieldtype": "Select",
+   "label": "Preliminary QC Check",
+   "options": "Accept\nReject\nHold"
+  },
+  {
+   "fieldname": "storage",
+   "fieldtype": "Link",
+   "label": "Storage",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "upload_new",
+   "fieldtype": "Attach",
+   "label": "Upload"
+  },
+  {
+   "fieldname": "im_inspection_report_tab",
+   "fieldtype": "Tab Break",
+   "label": "IM Inspection Report"
+  },
+  {
+   "fieldname": "incoming_material",
+   "fieldtype": "Select",
+   "label": "Incoming Material",
+   "options": "RM\nSFG\nFG\nPM"
+  },
+  {
+   "fieldname": "received_from",
+   "fieldtype": "Data",
+   "label": "Received From"
+  },
+  {
+   "fieldname": "vehicle_detailsarrival_details",
+   "fieldtype": "Data",
+   "label": "Vehicle Details/Arrival Details"
+  },
+  {
+   "fieldname": "invoice_details",
+   "fieldtype": "Data",
+   "label": "Invoice Details"
+  },
+  {
+   "fieldname": "column_break_jhqn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_receipt",
+   "fieldtype": "Date",
+   "label": "Date of Receipt"
+  },
+  {
+   "fieldname": "name_of_qc",
+   "fieldtype": "Data",
+   "label": "Name of QC"
+  },
+  {
+   "fieldname": "arrival_time",
+   "fieldtype": "Datetime",
+   "label": "Arrival Time"
+  },
+  {
+   "fieldname": "invoice_date1",
+   "fieldtype": "Date",
+   "label": "Invoice Date"
+  },
+  {
+   "fieldname": "section_break_huzr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "coa_available",
+   "fieldtype": "Select",
+   "label": "COA Available",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "the_outside_of_the_vehicle_is",
+   "fieldtype": "Select",
+   "label": "The Outside of the Vehicle is",
+   "options": "Clean\nMuddy\nDirty\nOily\nOther"
+  },
+  {
+   "fieldname": "material_is_secured_properly",
+   "fieldtype": "Select",
+   "label": "Material is Secured Properly",
+   "options": "Yes\nNo\nComment"
+  },
+  {
+   "fieldname": "during_unloading_vehicle_smells",
+   "fieldtype": "Select",
+   "label": "During Unloading, Vehicle Smells",
+   "options": "Clean\nHas off-Odours\nOthers"
+  },
+  {
+   "fieldname": "the_inside_of_the_carrier_is",
+   "fieldtype": "Select",
+   "label": "The Inside of the Carrier is",
+   "options": "In Good Shape\nDamaged\nDirty\nInfested\nHas Trash from Previous Shipment"
+  },
+  {
+   "fieldname": "sacks_bags_cartons_are",
+   "fieldtype": "Select",
+   "label": "Sacks/Bags/Cartons Are",
+   "options": "Properly Stacked\nInproperly Stacked\nBroken/Torn\nComment"
+  },
+  {
+   "fieldname": "sacks_bags_cartons_condition",
+   "fieldtype": "Select",
+   "label": "Sacks/Bags/Cartons condition",
+   "options": "Good\nStained\nDirty\nWet\nOther"
+  },
+  {
+   "fieldname": "column_break_mkqk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.sacks_bags_cartons_condition == 'Wet'",
+   "fieldname": "no_of_wet_bags_sacks_cartons",
+   "fieldtype": "Data",
+   "label": "No. of Wet/Bags/Sacks/Cartons"
+  },
+  {
+   "fieldname": "evidence_of_pest_activity",
+   "fieldtype": "Select",
+   "label": "Evidence of Pest Activity",
+   "options": "Not Found\nInsects\nRodents\nBirds"
+  },
+  {
+   "fieldname": "received_total_no_of_bags",
+   "fieldtype": "Data",
+   "label": "Received Total No. of Bags"
+  },
+  {
+   "fieldname": "total_net_weight",
+   "fieldtype": "Data",
+   "label": "Total Net Weight"
+  },
+  {
+   "fieldname": "no_of_bags_weighed_randomly",
+   "fieldtype": "Data",
+   "label": "No. of Bags Weighed Randomly"
+  },
+  {
+   "fieldname": "weight_difference",
+   "fieldtype": "Data",
+   "label": "Weight Difference"
+  },
+  {
+   "fieldname": "no_of_bags_sampels_collected",
+   "fieldtype": "Data",
+   "label": "No. of Bags Sampels Collected"
+  },
+  {
+   "fieldname": "no_of_bags_inspected_visually",
+   "fieldtype": "Data",
+   "label": "No. of Bags Inspected Visually"
+  },
+  {
+   "fieldname": "section_break_twwy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tamper_proof_seal_no",
+   "fieldtype": "Data",
+   "label": "Tamper Proof Seal No."
+  },
+  {
+   "fieldname": "unloading_time",
+   "fieldtype": "Datetime",
+   "label": "Unloading Time"
+  },
+  {
+   "fieldname": "ok_to_be_stored_in_our_ware_house",
+   "fieldtype": "Select",
+   "label": "Ok To Be Stored In Our Ware House",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.ok_to_be_stored_in_our_ware_house == 'No'",
+   "fieldname": "action_taken",
+   "fieldtype": "Data",
+   "label": "Action Taken"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "gate_entry_tab",
+   "fieldtype": "Tab Break",
+   "label": "Gate Entry"
+  },
+  {
+   "fieldname": "weighing_bridge_link",
+   "fieldtype": "Link",
+   "label": "Weighing Bridge",
+   "options": "Weighing Bridge1"
+  },
+  {
+   "fetch_from": "weighing_bridge_link.supplier",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-28 12:01:23.033160",
+ "modified_by": "Administrator",
+ "module": "Nani Foods",
+ "name": "I M Inspection Report1",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include nani_foods *.css
+recursive-include nani_foods *.csv
+recursive-include nani_foods *.html
+recursive-include nani_foods *.ico
+recursive-include nani_foods *.js
+recursive-include nani_foods *.json
+recursive-include nani_foods *.md
+recursive-include nani_foods *.png
+recursive-include nani_foods *.py
+recursive-include nani_foods *.svg
+recursive-include nani_foods *.txt
+recursive-exclude nani_foods *.pyc

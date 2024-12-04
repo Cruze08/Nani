@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-01-10 15:19:27.343695",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "product",
+  "gms",
+  "net",
+  "gross",
+  "qty",
+  "total_net",
+  "total_gross",
+  "batch_no",
+  "bbd",
+  "packing_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product",
+   "options": "Item"
+  },
+  {
+   "fieldname": "gms",
+   "fieldtype": "Data",
+   "label": "GMS"
+  },
+  {
+   "fieldname": "net",
+   "fieldtype": "Data",
+   "label": "Net"
+  },
+  {
+   "fieldname": "gross",
+   "fieldtype": "Data",
+   "label": "Gross"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Data",
+   "label": "Qty"
+  },
+  {
+   "fieldname": "total_net",
+   "fieldtype": "Data",
+   "label": "Total Net"
+  },
+  {
+   "fieldname": "total_gross",
+   "fieldtype": "Data",
+   "label": "Total Gross"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Data",
+   "label": "Batch No"
+  },
+  {
+   "fieldname": "bbd",
+   "fieldtype": "Data",
+   "label": "BBD"
+  },
+  {
+   "fieldname": "packing_type",
+   "fieldtype": "Data",
+   "label": "Packing Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-10 15:19:27.343695",
+ "modified_by": "Administrator",
+ "module": "Nani Foods",
+ "name": "Dispatch Items",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
